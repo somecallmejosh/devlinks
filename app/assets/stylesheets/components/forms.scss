@@ -1,0 +1,131 @@
+@layer components {
+  .input:not([type="checkbox"]):not([type="radio"]) {
+    --border: 1px solid var(--gray-light);
+    --border-hover: var(--gray);
+    --background: var(--white);
+    --background-hover: var(--white);
+    --text-color: var(--black);
+    --text-color-hover: var(--black);
+    --placeholder: var(--gray-light);
+
+    background-color: var(--background);
+    border-radius: .5rem;
+    border: var(--border);
+    color: var(--text-color);
+    outline: none;
+    position: absolute;
+    inset: 0;
+    text-align: left;
+    font-size: 1rem;
+
+    &::placeholder:not([disabled]) {
+      color: var(--placeholder);
+    }
+  }
+
+  .form-group {
+    position: relative;
+    height: 3rem;
+
+    button {
+      cursor: pointer;
+    }
+
+    &:has(.caret) {
+      .caret {
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        transform: translateY(-50%);
+        transform-origin: center;
+        transition: var(--transition);
+        z-index: 1;
+      }
+
+      .form-select {
+        display: none;
+      }
+
+      button:focus ~ .caret,
+      button.active {
+        color: var(--primary);
+        transform: translateY(-50%) rotateX(180deg);
+
+        &  ~ .form-select {
+          display: block;
+        }
+      }
+    }
+
+    &:has(.icon) {
+      .input {
+        padding: 0 1rem 0 2.75rem;
+      }
+
+      svg, .icon {
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+        width: 1.5rem;
+        z-index: 1;
+      }
+    }
+
+    &:not(:has(.icon)) {
+      .input {
+        padding: 0 1rem;
+      }
+    }
+
+    &:not(:has(.error-message)) {
+      .input {
+        &[disabled] {
+          background-color: var(--gray-light);
+          border-color: var(--gray-light);
+          color: var(--gray);
+          cursor: not-allowed;
+        }
+
+        &:not([disabled]) {
+          transition: all var(--transition);
+
+          &:focus {
+            border-color: var(--primary);
+            box-shadow: var(--box-shadow);
+          }
+        }
+      }
+    }
+
+    &:has(.error-message) {
+      .input {
+        &:not([type="checkbox"]):not([type="radio"]) {
+          border-color: var(--error);
+        }
+      }
+
+      .error-message {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 1rem;
+        color: var(--error);
+        font-size: 0.75rem;
+        line-height: 1;
+        z-index: 1;
+      }
+    }
+  }
+
+  .form-select {
+    position: absolute;
+    top: 3rem;
+    width: 100%;
+    background: var(--white);
+    border-radius: .5rem;
+    border: 1px solid var(--gray-light);
+    z-index: 2;
+    padding: 1rem;
+  }
+}

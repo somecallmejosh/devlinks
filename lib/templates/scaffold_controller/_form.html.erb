@@ -1,0 +1,28 @@
+<%%= form_with(model: <%= singular_table_name %>) do |form| %%>
+  <%% if <%= singular_table_name %>.errors.any? %%>
+    <section aria-label="Form error notification"  cass="alert">
+      <p><%%= pluralize(<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</p>
+      <ul>
+        <%% <%= singular_table_name %>.errors.full_messages.each do |message| %%>
+          <li><%%= message %%></li>
+        <%% end %%>
+      </ul>
+    </section>
+  <%% end %%>
+
+  <%- attributes.each do |attribute| -%>
+    <div class="form-group-wrap">
+      <%% form.label :<%= attribute.name %> %%>
+      <div class="form-group">
+        <%%= form.<%= attribute.field_type %> : <%= attribute.name> %%>
+        <%% if <%= singular_table_name %>.errors.<%= attribute.name %>.any? %%>
+          <span class="error-message"><%%= error %%></span>
+        <%% end %%>
+      </div>
+    </div>
+  <%- end -%>
+
+  <div class="form-actions">
+    <%%= form.submit class: 'button' %%>
+  </div>
+<%% end %%>

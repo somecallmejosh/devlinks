@@ -1,0 +1,28 @@
+@layer typography {
+  :root {
+    --heading-sm: bold 1rem/1.5 var(--font-family);
+  }
+  @font-face {
+    font-display: swap;
+    font-family: 'InstrumentSans';
+    font-style: normal;
+    font-weight: normal;
+    src: font-url('InstrumentSans-Regular.ttf');
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'InstrumentSans';
+    font-style: normal;
+    font-weight: 500;
+    src: font-url('InstrumentSans-SemiBold.ttf');
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'InstrumentSans';
+    font-style: normal;
+    font-weight: 700;
+    src: font-url('InstrumentSans-Bold.ttf');
+  }
+}
