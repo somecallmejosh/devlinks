@@ -7,7 +7,7 @@
     font-family: 'InstrumentSans';
     font-style: normal;
     font-weight: normal;
-    src: font-url('InstrumentSans-Regular.ttf') format('truetype');
+    src: url('InstrumentSans-Regular.ttf') format('truetype');
   }
 
   @font-face {
@@ -15,7 +15,7 @@
     font-family: 'InstrumentSans';
     font-style: normal;
     font-weight: 500;
-    src: font-url('InstrumentSans-SemiBold.ttf') format('truetype');
+    src: url('InstrumentSans-SemiBold.ttf') format('truetype');
   }
 
   @font-face {
@@ -23,6 +23,6 @@
     font-family: 'InstrumentSans';
     font-style: normal;
     font-weight: 700;
-    src: font-url('InstrumentSans-Bold.ttf') format('truetype');
+    src: url('InstrumentSans-Bold.ttf') format('truetype');
   }
 }
